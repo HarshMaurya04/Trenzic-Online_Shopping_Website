@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBagShopping, faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 const Navbar = () => {
   return (
-    <nav className="container px-10 flex items-center justify-between py-6">
+    <nav className="container px-10 flex items-center justify-between py-4">
       {/* Left - Logo */}
       <div>
         <Link to="/" className="text-3xl font-medium">
@@ -55,7 +56,9 @@ const Navbar = () => {
         </button>
 
         {/* Search Icon*/}
-
+        <div className="overflow-hidden">
+            <Searchbar />
+        </div>
 
         <button className="md:hidden text-gray-600 hover:text-black">
           <FontAwesomeIcon icon={faBars} className="h-6 w-6"/>
