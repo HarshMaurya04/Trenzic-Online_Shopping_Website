@@ -1,3 +1,4 @@
+import CartDrawer from "../Layout/CartDrawer"
 import Topbar from "../Layout/Topbar"
 import Navbar from "./Navbar"
 
@@ -10,7 +11,7 @@ const Header = () => {
         {/* Navbar */}
         <Navbar />
 
-        {/* Cart Drawer */}
+        {/* Cart Drawer */} 
     </header>
   )
 }
