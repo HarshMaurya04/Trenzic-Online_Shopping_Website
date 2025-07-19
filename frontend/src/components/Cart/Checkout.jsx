@@ -45,7 +45,7 @@ const Checkout = () => {
       setLoadingRate(true);
       try {
         const response = await fetch(
-          "https://v6.exchangerate-api.com/v6/a1e8c0253149d4e6043a2516/latest/INR"
+          "https://v6.exchangerate-api.com/v6/${import.meta.env.VITE_EXCHANGE_RATE_API_KEY}/latest/INR"
         );
         const data = await response.json();
         const rate = data.conversion_rates.USD;

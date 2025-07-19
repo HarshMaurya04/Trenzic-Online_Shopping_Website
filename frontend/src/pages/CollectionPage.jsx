@@ -14,7 +14,7 @@ const CollectionPage = () => {
   };
 
   const handleClickOutside = (e) => {
-    // Close sodebar if clicked outside
+    // Close sidebar if clicked outside
     if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
       setIsSidebarOpen(false);
     }
