@@ -34,7 +34,7 @@ const CartContents = () => {
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-20 h-24 object-cover mr-4 rounded"
+                className="w-20 h-24 object-cover mr-4 rounded-xl"
               />
               <div>
                 <h3 className="font-semibold">{product.name}</h3>
