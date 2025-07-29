@@ -37,7 +37,7 @@ const EditProductPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(productData);
-  }
+  };
 
   return (
     <div className="max-w-5xl mx-auto p-6 shadow-md rounded-2xl sm:rounded-3xl bg-slate-50">
@@ -178,7 +178,12 @@ const EditProductPage = () => {
             ))}
           </div>
         </div>
-        <button type="submit" className="w-full bg-green-500 text-white py-2 rounded-xl hover:bg-green-600 transition-colors">Update Product</button>
+        <button
+          type="submit"
+          className="w-full bg-green-500 text-white py-2 rounded-xl hover:bg-green-600 transition-colors"
+        >
+          Update Product
+        </button>
       </form>
     </div>
   );
