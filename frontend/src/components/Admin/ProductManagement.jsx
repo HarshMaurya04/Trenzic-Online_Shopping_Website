@@ -21,7 +21,7 @@ const ProductManagement = () => {
       <h2 className="text-2xl font-bold mb-6">Product Management</h2>
 
       {/* Styled Product Table */}
-      <div className="relative bg-slate-50 shadow-md rounded-3xl overflow-hidden mb-8">
+      <div className="relative bg-slate-50 shadow-md rounded-2xl sm:rounded-3xl overflow-x-auto mb-8">
         <table className="min-w-full text-left text-gray-500">
           <thead className="bg-gray-200 text-sm uppercase text-gray-700">
             <tr>
@@ -47,16 +47,16 @@ const ProductManagement = () => {
                   <td className="py-2 px-4 sm:py-3 font-medium text-gray-900 whitespace-nowrap">
                     {product.sku}
                   </td>
-                  <td className="py-2 px-4 sm:py-3 space-x-2">
+                  <td className="py-2 px-4 sm:py-3 space-y-2 sm:space-x-2">
                     <Link
                       to={`/admin/products/${product._id}/edit`}
-                      className="bg-yellow-500 text-white px-4 py-2 rounded-xl text-sm hover:bg-yellow-600 transition"
+                      className="bg-yellow-500 text-white px-4 py-1 sm:py-2 rounded-lg sm:rounded-xl text-sm hover:bg-yellow-600 transition"
                     >
                       Edit
                     </Link>
                     <button
                       onClick={() => handleDelete(product._id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded-xl text-sm hover:bg-red-600 transition"
+                      className="bg-red-500 text-white px-4 py-1 sm:py-2 rounded-lg sm:rounded-xl text-sm hover:bg-red-600 transition"
                     >
                       Delete
                     </button>

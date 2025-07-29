@@ -52,7 +52,7 @@ const UserManagement = () => {
       <h2 className="text-2xl font-bold mb-6">User Management</h2>
 
       {/* Add New User Form */}
-      <div className="p-6 bg-slate-50 shadow-md rounded-3xl mb-10">
+      <div className="p-6 bg-slate-50 shadow-md rounded-2xl sm:rounded-3xl mb-10">
         <h3 className="text-lg font-bold mb-4">Add New User</h3>
         <form onSubmit={handleSubmit}>
           {/* Row 1: Name & Role */}
@@ -64,7 +64,7 @@ const UserManagement = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-xl focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full p-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:border-blue-300 transition duration-200"
                 required
               />
             </div>
@@ -74,7 +74,7 @@ const UserManagement = () => {
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-xl focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full p-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:border-blue-300 transition duration-200"
               >
                 <option value="customer">Customer</option>
                 <option value="admin">Admin</option>
@@ -91,7 +91,7 @@ const UserManagement = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-xl focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full p-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:border-blue-300 transition duration-200"
                 required
               />
             </div>
@@ -102,7 +102,7 @@ const UserManagement = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-xl focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full p-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:border-blue-300 transition duration-200"
                 required
               />
             </div>
@@ -117,9 +117,9 @@ const UserManagement = () => {
           </button>
         </form>
       </div>
- 
+
       {/* User List Management */}
-      <div className="relative bg-slate-50 shadow-md rounded-3xl overflow-hidden mb-8">
+      <div className="relative bg-slate-50 shadow-md rounded-2xl sm:rounded-3xl overflow-x-auto mb-8">
         <table className="min-w-full text-left text-gray-500">
           <thead className="bg-gray-200 text-sm uppercase text-gray-700">
             <tr>
@@ -146,7 +146,7 @@ const UserManagement = () => {
                       onChange={(e) =>
                         handleRoleChange(user._id, e.target.value)
                       }
-                      className="p-2 border rounded-xl focus:outline-none focus:ring focus:border-blue-300"
+                      className="p-1 sm:p-2 border border-slate-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:border-blue-300 transition duration-200"
                     >
                       <option value="customer">Customer</option>
                       <option value="admin">Admin</option>
@@ -155,7 +155,7 @@ const UserManagement = () => {
                   <td className="py-2 px-4 sm:py-3">
                     <button
                       onClick={() => handleDeleteUser(user._id)}
-                      className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm transition"
+                      className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 sm:py-2 rounded-lg sm:rounded-xl text-sm transition"
                     >
                       Delete
                     </button>
