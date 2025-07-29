@@ -62,6 +62,12 @@ const Navbar = () => {
 
         {/* Right - Icons */}
         <div className="flex items-center gap-3">
+          <Link
+            to="/admin"
+            className="block bg-black px-2 rounded text-sm text-white"
+          >
+            Admin
+          </Link>
           <Link to="/profile" className="text-gray-600 hover:text-black">
             <FontAwesomeIcon icon={faUser} className="h-6 w-6" />
           </Link>
@@ -137,7 +143,6 @@ const Navbar = () => {
               Bottom Wear
             </Link>
           </nav>
-
         </div>
       </div>
     </>

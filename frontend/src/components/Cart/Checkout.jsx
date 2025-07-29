@@ -6,7 +6,6 @@ const cart = {
   products: [
     {
       name: "Stylish Jacaket",
-
       size: "M",
       color: "Black",
       price: 3500,

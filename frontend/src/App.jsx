@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserLayout from "./components/Layout/UserLayout";
-import AdminLayout from "./components/Layout/AdminLayout";
 import Home from "./pages/Home";
 import { Toaster } from "sonner";
 import Login from "./pages/Login";
@@ -12,6 +11,8 @@ import Checkout from "./components/Cart/Checkout";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
 import OrderDetailsPage from "./pages/OrderDetailsPage";
 import MyOrdersPage from "./pages/MyOrdersPage";
+import AdminLayout from "./components/Admin/AdminLayout";
+import AdminHomePage from "./pages/AdminHomePage";
 
 const App = () => {
   return (
@@ -33,8 +34,9 @@ const App = () => {
           <Route path="order/:id" element={<OrderDetailsPage />} />
           <Route path="my-orders" element={<MyOrdersPage />} />
         </Route>
+
         <Route path="/admin" element={<AdminLayout />}>
-          {/* Admin Layout */}
+          <Route index element={<AdminHomePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
