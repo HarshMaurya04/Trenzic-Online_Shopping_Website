@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 const NewArrival = () => {
   const scrollRef = useRef(null);
@@ -11,96 +12,21 @@ const NewArrival = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const newArrival = [
-    {
-      _id: "1",
-      name: "Stylish Jacket",
-      price: 1200,
-      image: [
-        {
-          url: "https://picsum.photos/500/500?random=1",
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "2",
-      name: "Stylish Jacket",
-      price: 1200,
-      image: [
-        {
-          url: "https://picsum.photos/500/500?random=2",
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "3",
-      name: "Stylish Jacket",
-      price: 1200,
-      image: [
-        {
-          url: "https://picsum.photos/500/500?random=3",
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "4",
-      name: "Stylish Jacket",
-      price: 1200,
-      image: [
-        {
-          url: "https://picsum.photos/500/500?random=4",
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "5",
-      name: "Stylish Jacket",
-      price: 1200,
-      image: [
-        {
-          url: "https://picsum.photos/500/500?random=5",
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "6",
-      name: "Stylish Jacket",
-      price: 1200,
-      image: [
-        {
-          url: "https://picsum.photos/500/500?random=6",
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "7",
-      name: "Stylish Jacket",
-      price: 1200,
-      image: [
-        {
-          url: "https://picsum.photos/500/500?random=7",
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "8",
-      name: "Stylish Jacket",
-      price: 1200,
-      image: [
-        {
-          url: "https://picsum.photos/500/500?random=8",
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-  ];
+  const [newArrival, setNewArrivals] = useState([]);
+
+  useEffect(() => {
+    const fetchNewArrivals = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`
+        );
+        setNewArrivals(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchNewArrivals();
+  }, []);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -145,7 +71,7 @@ const NewArrival = () => {
       updateScrollButtons();
       return () => container.removeEventListener("scroll", updateScrollButtons);
     }
-  }, []);
+  }, [newArrival]);
 
   return (
     <section>
@@ -153,7 +79,8 @@ const NewArrival = () => {
         <div className="text-center relative">
           <h2 className="text-3xl font-bold mb-4">Explore New Arrivals</h2>
           <p className="text-lg text-grey-600 mb-16">
-            Stay ahead of the trends with our newest runway-inspired styles, curated to elevate your wardrobe.
+            Stay ahead of the trends with our newest runway-inspired styles,
+            curated to elevate your wardrobe.
           </p>
 
           {/* Scroll Buttons */}
@@ -201,8 +128,8 @@ const NewArrival = () => {
               className="min-w-[100%] sm:min-w-[50%] lg:min-w-[30%] relative"
             >
               <img
-                src={product.image[0].url}
-                alt={product.image[0].altText || product.name}
+                src={product.images?.[0]?.url}
+                alt={product.images?.[0]?.altText || product.name}
                 className="w-full h-[500px] object-cover rounded-2xl"
                 draggable="false"
               />
