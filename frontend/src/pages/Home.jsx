@@ -8,6 +8,7 @@ import ProductDetails from "../components/Products/ProductDetails";
 import ProductGrid from "../components/Products/ProductGrid";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsByFilter } from "../redux/slices/productsSlice";
+import axios from "axios";
 
 const Home = () => {
   const dispatch = useDispatch();

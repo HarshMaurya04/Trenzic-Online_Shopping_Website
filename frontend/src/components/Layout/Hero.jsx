@@ -20,7 +20,7 @@ const Hero = () => {
           </p>
 
           <Link
-            to="#"
+            to="/collections/all"
             className="bg-white text-amber-950 px-6 py-2 rounded-lg text-lg font-semibold"
           >
             Shop Now

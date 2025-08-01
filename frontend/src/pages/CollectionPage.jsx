@@ -3,11 +3,23 @@ import { FaFilter } from "react-icons/fa";
 import FilterSidebar from "../components/Products/FilterSidebar";
 import SortOptions from "../components/Products/SortOptions";
 import ProductGrid from "../components/Products/ProductGrid";
+import { useParams, useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsByFilter } from "../redux/slices/productsSlice";
 
 const CollectionPage = () => {
-  const [products, setProducts] = useState([]);
+  const { collection } = useParams();
+  const [searchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.products);
+  const queryParams = Object.fromEntries([...searchParams]);
+
   const sidebarRef = useRef(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchProductsByFilter({ collection, ...queryParams }));
+  }, [dispatch, collection, searchParams]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -26,88 +38,8 @@ const CollectionPage = () => {
 
     //clean event listener
     return () => {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      const fetchProducts = [
-        {
-          id: 1,
-          name: "Product 1",
-          price: 2000,
-          image: {
-            url: "https://picsum.photos/500/500?random=15",
-            altTrxt: "Product 1",
-          },
-        },
-        {
-          id: 2,
-          name: "Product 2",
-          price: 2000,
-          image: {
-            url: "https://picsum.photos/500/500?random=16",
-            altTrxt: "Product 2",
-          },
-        },
-        {
-          id: 3,
-          name: "Product 3",
-          price: 2000,
-          image: {
-            url: "https://picsum.photos/500/500?random=17",
-            altTrxt: "Product 3",
-          },
-        },
-        {
-          id: 4,
-          name: "Product 4",
-          price: 2000,
-          image: {
-            url: "https://picsum.photos/500/500?random=18",
-            altTrxt: "Product 4",
-          },
-        },
-        {
-          id: 5,
-          name: "Product 5",
-          price: 2000,
-          image: {
-            url: "https://picsum.photos/500/500?random=19",
-            altTrxt: "Product 5",
-          },
-        },
-        {
-          id: 6,
-          name: "Product 6",
-          price: 2000,
-          image: {
-            url: "https://picsum.photos/500/500?random=20",
-            altTrxt: "Product 6",
-          },
-        },
-        {
-          id: 7,
-          name: "Product 7",
-          price: 2000,
-          image: {
-            url: "https://picsum.photos/500/500?random=21",
-            altTrxt: "Product 7",
-          },
-        },
-        {
-          id: 8,
-          name: "Product 8",
-          price: 2000,
-          image: {
-            url: "https://picsum.photos/500/500?random=22",
-            altTrxt: "Product 8",
-          },
-        },
-      ];
-      setProducts(fetchProducts);
-    }, 1000);
   }, []);
 
   return (
@@ -125,12 +57,12 @@ const CollectionPage = () => {
         ref={sidebarRef}
         className={`${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } fixed inset-y-0 z-50 left-0 w-64 bg-white overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}
+        } fixed inset-y-0 z-30 left-0 w-64 bg-white overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}
       >
         <FilterSidebar />
       </div>
-      <div className="flex-grow p-4">
-        <h2 className="text-2xl uppercase mb-4 font-semibold">
+      <div className="flex-grow p-4 mb-10">
+        <h2 className="text-2xl uppercase mb-2 font-semibold">
           All Collection
         </h2>
 
@@ -138,7 +70,7 @@ const CollectionPage = () => {
         <SortOptions />
 
         {/* Product Grid */}
-        <ProductGrid products={products} />
+        <ProductGrid products={products} loading={loading} error={error} />
       </div>
     </div>
   );

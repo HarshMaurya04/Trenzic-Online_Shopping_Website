@@ -10,12 +10,12 @@ const SortOptions = () => {
   };
 
   return (
-    <div className="mb-4 flex items-center justify-end">
+    <div className="mb-6 flex items-center justify-end">
       <select
         id="sort"
         onChange={handleSortChange}
         value={searchParams.get("sortBy") || ""}
-        className="border p-2 rounded-xl focus:outline-none"
+        className="border border-gray-400 p-2 rounded-xl focus:outline-none"
       >
         <option value="">
           Default

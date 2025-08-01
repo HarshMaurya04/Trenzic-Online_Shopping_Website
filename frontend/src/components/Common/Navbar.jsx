@@ -9,10 +9,23 @@ import Searchbar from "./Searchbar";
 import CartDrawer from "../Layout/CartDrawer";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const selectedCategory = searchParams.get("category");
+  const selectedGender = searchParams.get("gender");
+
+  const { cart } = useSelector((state) => state.cart);
+
+  const cartItemCount =
+    cart?.products?.reduce((total, product) => total + product.quantity, 0) ||
+    0;
 
   const toggleCartDrawer = () => {
     setDrawerOpen(!drawerOpen);
@@ -35,26 +48,45 @@ const Navbar = () => {
         {/* Center - Navigation Links */}
         <div className="hidden md:flex space-x-6">
           <Link
-            to="/collections/all"
-            className="text-gray-600 hover:text-black hover:underline text-sm font-medium uppercase"
+            to="/collections/all?gender=Men"
+            className={`text-sm font-medium uppercase ${
+              selectedGender === "Men"
+                ? "text-black font-bold underline"
+                : "text-gray-600 hover:text-black hover:underline"
+            }`}
           >
             Men
           </Link>
+
           <Link
-            to="#"
-            className="text-gray-600 hover:text-black hover:underline text-sm font-medium uppercase"
+            to="/collections/all?gender=Women"
+            className={`text-sm font-medium uppercase ${
+              selectedGender === "Women"
+                ? "text-black font-bold underline"
+                : "text-gray-600 hover:text-black hover:underline"
+            }`}
           >
             Women
           </Link>
+
           <Link
-            to="#"
-            className="text-gray-600 hover:text-black hover:underline text-sm font-medium uppercase"
+            to="/collections/all?category=Top Wear"
+            className={`text-sm font-medium uppercase ${
+              selectedCategory === "Top Wear"
+                ? "text-black font-bold underline"
+                : "text-gray-600 hover:text-black hover:underline"
+            }`}
           >
             Top Wear
           </Link>
+
           <Link
-            to="#"
-            className="text-gray-600 hover:text-black hover:underline text-sm font-medium uppercase"
+            to="/collections/all?category=Bottom Wear"
+            className={`text-sm font-medium uppercase ${
+              selectedCategory === "Bottom Wear"
+                ? "text-black font-bold underline"
+                : "text-gray-600 hover:text-black hover:underline"
+            }`}
           >
             Bottom Wear
           </Link>
@@ -77,9 +109,11 @@ const Navbar = () => {
             className="relative text-gray-600 hover:text-black"
           >
             <FontAwesomeIcon icon={faBagShopping} className="h-6 w-6" />
-            <span className="absolute -top-1 -right-2 bg-[#d97706] text-white text-xs rounded-full px-1.5 py-0.5 ">
-              4
-            </span>
+            {cartItemCount > 0 && (
+              <span className="absolute -top-1 -right-2 bg-[#d97706] text-white text-xs rounded-full px-1.5 py-0.5 ">
+                {cartItemCount}
+              </span>
+            )}
           </button>
 
           {/* Search Icon*/}
@@ -115,30 +149,49 @@ const Navbar = () => {
             <h2 className="text-xl font-semibold">Menu</h2>
 
             <Link
-              to="#"
+              to="/collections/all?gender=Men"
               onClick={toggleNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline"
+              className={`text-sm font-medium uppercase ${
+                selectedGender === "Men"
+                  ? "text-black font-bold underline"
+                  : "text-gray-600 hover:text-black hover:underline"
+              }`}
             >
               Men
             </Link>
+
             <Link
-              to="#"
+              to="/collections/all?gender=Women"
               onClick={toggleNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline"
+              className={`text-sm font-medium uppercase ${
+                selectedGender === "Women"
+                  ? "text-black font-bold underline"
+                  : "text-gray-600 hover:text-black hover:underline"
+              }`}
             >
               Women
             </Link>
+
             <Link
-              to="#"
+              to="/collections/all?category=Top Wear"
               onClick={toggleNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline"
+              className={`text-sm font-medium uppercase ${
+                selectedCategory === "Top Wear"
+                  ? "text-black font-bold underline"
+                  : "text-gray-600 hover:text-black hover:underline"
+              }`}
             >
               Top Wear
             </Link>
+
             <Link
-              to="#"
+              to="/collections/all?category=Bottom Wear"
               onClick={toggleNavDrawer}
-              className="block text-gray-600 hover:text-black hover:underline"
+              className={`text-sm font-medium uppercase ${
+                selectedCategory === "Bottom Wear"
+                  ? "text-black font-bold underline"
+                  : "text-gray-600 hover:text-black hover:underline"
+              }`}
             >
               Bottom Wear
             </Link>
