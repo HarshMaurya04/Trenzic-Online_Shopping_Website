@@ -60,7 +60,7 @@ const productSchema = new mongoose.Schema(
           type: String,
           required: true,
         },
-        alrText: {
+        altText: {
           type: String,
         },
       },

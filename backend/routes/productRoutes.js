@@ -217,7 +217,7 @@ router.get("/", async (req, res) => {
     let sort = {};
     if (sortBy) {
       switch (sortBy) {
-        case "PriceAsc":
+        case "priceAsc":
           sort = { price: 1 };
           break;
         case "priceDesc":
