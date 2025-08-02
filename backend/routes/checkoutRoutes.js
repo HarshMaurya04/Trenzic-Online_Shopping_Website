@@ -77,7 +77,7 @@ router.post("/:id/finalize", protect, async (req, res) => {
     }
 
     if (checkout.isPaid && !checkout.isFinalized) {
-      // Create final order base3d on the checkout details
+      // Create final order based on the checkout details
       const finalOrder = await Order.create({
         user: checkout.user,
         orderItems: checkout.checkoutItems,
