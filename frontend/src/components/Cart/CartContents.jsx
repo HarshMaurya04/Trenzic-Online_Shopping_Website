@@ -85,7 +85,7 @@ const CartContents = ({ cart, userId, guestId }) => {
 
             <div className="flex flex-col items-end">
               <p className="font-semibold">
-                Rs. {product.price.toLocaleString()}
+                ₹{product.price.toLocaleString("en-IN")}
               </p>
               <button
                 onClick={() =>

@@ -1,34 +1,23 @@
-const checkout = {
-  _id: "12323",
-  createdAt: new Date(),
-  checkoutItems: [
-    {
-      productId: "1",
-      name: "Jacket",
-      color: "black",
-      size: "M",
-      price: 1500,
-      quantity: 1,
-      Image: "https://picsum.photos/150?random=1",
-    },
-    {
-      productId: "2",
-      name: "T-shirt",
-      color: "black",
-      size: "M",
-      price: 1000,
-      quantity: 2,
-      Image: "https://picsum.photos/150?random=7",
-    },
-  ],
-  shippingAddress: {
-    address: "123 Fashion Street",
-    city: "Mumbai",
-    country: "India",
-  },
-};
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { clearCart } from "../redux/slices/cartSlice";
 
 const OrderConfirmationPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {checkout} = useSelector((state) => state.checkout);
+
+  // Clear the cart when the order is confirmed
+  useEffect(() => {
+    if(checkout && checkout._id) {
+      dispatch(clearCart());
+      localStorage.removeItem("cart");
+    } else {
+      navigate("/my-orders")
+    }
+  }, [checkout, dispatch, navigate])
+
   const calculateEstimatedDelivery = (createdAt) => {
     const orderDate = new Date(createdAt);
     orderDate.setDate(orderDate.getDate() + 10);
@@ -66,7 +55,7 @@ const OrderConfirmationPage = () => {
             {checkout.checkoutItems.map((item) => (
               <div key={item.productId} className="flex items-center mb-4">
                 <img
-                  src={item.Image}
+                  src={item.image}
                   alt={item.name}
                   className="w-16 h-16 object-cover rounded-xl mr-4"
                 />
@@ -77,7 +66,7 @@ const OrderConfirmationPage = () => {
                   </p>
                 </div>
                 <div className="ml-auto text-right">
-                  <p className="text-md">Rs.{item.price}</p>
+                  <p className="text-md">₹{item.price.toLocaleString("en-IN")}</p>
                   <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
                 </div>
               </div>

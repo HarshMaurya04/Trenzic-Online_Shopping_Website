@@ -39,7 +39,7 @@ export const updateProduct = createAsyncThunk(
   "adminProducts/updateProduct",
   async ({ id, productData }) => {
     const response = await axios.put(
-      `${API_URL}/api/admin/products/${id}`,
+      `${API_URL}/api/products/${id}`,
       productData,
       {
         headers: {
@@ -55,7 +55,7 @@ export const updateProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   "adminProducts/deleteProduct",
   async (id) => {
-    await axios.delete(`${API_URL}/api/admin/products/${id}`, {
+    await axios.delete(`${API_URL}/api/products/${id}`, {
       headers: {
         Authorization: USER_TOKEN,
       },
@@ -92,7 +92,7 @@ const adminProductSlice = createSlice({
       })
       // Update product
       .addCase(updateProduct.fulfilled, (state, action) => {
-        const index = state.users.findIndex(
+        const index = state.products.findIndex(
           (product) => product._id === action.payload._id
         );
         if (index !== -1) {

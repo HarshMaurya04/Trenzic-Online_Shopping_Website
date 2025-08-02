@@ -22,6 +22,7 @@ const Navbar = () => {
   const selectedGender = searchParams.get("gender");
 
   const { cart } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.auth);
 
   const cartItemCount =
     cart?.products?.reduce((total, product) => total + product.quantity, 0) ||
@@ -94,12 +95,15 @@ const Navbar = () => {
 
         {/* Right - Icons */}
         <div className="flex items-center gap-3">
-          <Link
-            to="/admin"
-            className="block bg-black px-2 rounded text-sm text-white"
-          >
-            Admin
-          </Link>
+          {user && user.role === "admin" && (
+            <Link
+              to="/admin"
+              className="block bg-black px-2 rounded text-sm text-white"
+            >
+              Admin
+            </Link>
+          )}
+
           <Link to="/profile" className="text-gray-600 hover:text-black">
             <FontAwesomeIcon icon={faUser} className="h-6 w-6" />
           </Link>

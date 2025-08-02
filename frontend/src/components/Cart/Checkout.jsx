@@ -1,33 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PayPalButton from "./PayPalButton";
-
-const cart = {
-  products: [
-    {
-      name: "Stylish Jacaket",
-      size: "M",
-      color: "Black",
-      price: 3500,
-      image: "https://picsum.photos/150?random=1",
-    },
-    {
-      name: "Casual Sneackers",
-      size: "42",
-      color: "White",
-      price: 1500,
-      image: "https://picsum.photos/150?random=2",
-    },
-  ],
-  totalPrice: 5000,
-};
+import { useDispatch, useSelector } from "react-redux";
+import { createCheckout } from "../../redux/slices/checkoutSlice";
+import axios from "axios";
 
 const Checkout = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { cart, loading, error } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.auth);
+
   const [checkoutId, setCheckoutId] = useState(null);
   const [usdAmount, setUsdAmount] = useState(null); // converted USD value
   const [loadingRate, setLoadingRate] = useState(false);
-
   const [shippingAddress, setShippingAddress] = useState({
     firstName: "",
     lastName: "",
@@ -38,13 +24,22 @@ const Checkout = () => {
     phone: "",
   });
 
+  // Ensure cart is loading before proceeding
+  useEffect(() => {
+    if (!cart || !cart.products || cart.products.length === 0) {
+      navigate("/");
+    }
+  }, [cart, navigate]);
+
   // Fetch conversion rate once
   useEffect(() => {
     const convertINRtoUSD = async () => {
       setLoadingRate(true);
       try {
         const response = await fetch(
-          "https://v6.exchangerate-api.com/v6/${import.meta.env.VITE_EXCHANGE_RATE_API_KEY}/latest/INR"
+          `https://v6.exchangerate-api.com/v6/${
+            import.meta.env.VITE_EXCHANGE_RATE_API_KEY
+          }/latest/INR`
         );
         const data = await response.json();
         const rate = data.conversion_rates.USD;
@@ -60,15 +55,68 @@ const Checkout = () => {
     convertINRtoUSD();
   }, []);
 
-  const handleCreateCheckout = (e) => {
+  const handleCreateCheckout = async (e) => {
     e.preventDefault();
-    setCheckoutId(123);
+    if (cart && cart.products.length > 0) {
+      const res = await dispatch(
+        createCheckout({
+          checkoutItems: cart.products,
+          shippingAddress,
+          paymentMethod: "Paypal",
+          totalPrice: cart.totalPrice,
+        })
+      );
+      if (res.payload && res.payload._id) {
+        setCheckoutId(res.payload._id); // Set checkout ID if checkout was successful
+      }
+    }
   };
 
-  const handlePaymentSuccess = (details) => {
-    console.log("Payment Successful", details);
-    navigate("/order-confirmation");
+  const handlePaymentSuccess = async (details) => {
+    try {
+      await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
+        { paymentStatus: "paid", paymentDetails: details },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          },
+        }
+      );
+      await handleFinalizeCheckout(checkoutId, details); // Finalize checkout if payment is successful
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  const handleFinalizeCheckout = async (checkoutId, details) => {
+    try {
+      await axios.post(
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/checkout/${checkoutId}/finalize`,
+        { paymentStatus: "paid", paymentDetails: details },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          },
+        }
+      );
+      navigate("/order-confirmation");
+    } catch (error) {
+      console.error("Finalize checkout error:", error);
+    }
+  };
+
+  if (loading) {
+    return <p>Loading cart ...</p>;
+  }
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+  if (!cart || !cart.products || cart.products.length === 0) {
+    return <p>Your cart is empty!</p>;
+  }
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto py-10 px-6">
@@ -83,7 +131,7 @@ const Checkout = () => {
             <label className="block text-gray-700 mb-1">Email</label>
             <input
               type="email"
-              value="user@example.com"
+              value={user ? user.email : ""}
               className="w-full p-2 border rounded-xl bg-white"
               disabled
             />
@@ -252,13 +300,13 @@ const Checkout = () => {
                   <p className="text-gray-600">Color: {product.color}</p>
                 </div>
               </div>
-              <p className="text-lg">Rs.{product.price?.toLocaleString()}</p>
+              <p className="text-lg">₹{product.price?.toLocaleString()}</p>
             </div>
           ))}
         </div>
         <div className="flex justify-between items-center text-lg mb-4">
           <p>Subtotal</p>
-          <p>Rs.{cart.totalPrice?.toLocaleString()}</p>
+          <p>₹{cart.totalPrice?.toLocaleString()}</p>
         </div>
         <div className="flex justify-between items-center text-lg mb-4">
           <p>Shipping</p>
@@ -266,7 +314,7 @@ const Checkout = () => {
         </div>
         <div className="flex justify-between items-center text-lg mt-4 border-t border-slate-300 pt-4">
           <p>Total</p>
-          <p>Rs.{cart.totalPrice?.toLocaleString()}</p>
+          <p>₹{cart.totalPrice?.toLocaleString()}</p>
         </div>
       </div>
     </div>
