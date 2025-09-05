@@ -18,11 +18,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=39",
+        url: "https://images.unsplash.com/photo-1744535814656-65f3cfa561bc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         altText: "Classic Oxford Button-Down Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=40",
+        url: "https://images.unsplash.com/photo-1744535814651-b106bb53026d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         altText: "Classic Oxford Button-Down Shirt Back View",
       },
     ],
@@ -46,11 +46,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=41",
+        url: "https://www.jiomart.com/images/product/original/443010893_black/slim-fit-shirt-with-flap-pockets-model-443010893_black-0-202307042233.jpg?im=Resize=(600,750)",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=42",
+        url: "https://www.jiomart.com/images/product/original/443010893_black/slim-fit-shirt-with-flap-pockets-model3-443010893_black-3-202307042233.jpg?im=Resize=(600,750)",
         altText: "Slim-Fit Stretch Shirt Back View",
       },
     ],
@@ -74,11 +74,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=43",
+        url: "https://www.jiomart.com/images/product/original/443019210_indigo/denim-shirt-with-patch-pocket-model-443019210_indigo-0-202307280910.jpg?im=Resize=(600,750)",
         altText: "Casual Denim Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=44",
+        url: "https://www.jiomart.com/images/product/original/443019210_indigo/denim-shirt-with-patch-pocket-model3-443019210_indigo-3-202307280910.jpg?im=Resize=(600,750)",
         altText: "Casual Denim Shirt Back View",
       },
     ],
@@ -102,11 +102,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=45",
+        url: "https://www.jiomart.com/images/product/original/469063064_blueazur/printed-resort-shirt-with-patch-pocket-model-469063064_blueazur-0-202301090440.jpg?im=Resize=(600,750)",
         altText: "Printed Resort Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=1",
+        url: "https://www.jiomart.com/images/product/original/469063064_blueazur/printed-resort-shirt-with-patch-pocket-model2-469063064_blueazur-2-202301090440.jpg?im=Resize=(600,750)",
         altText: "Printed Resort Shirt Back View",
       },
     ],
@@ -130,11 +130,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=47",
+        url: "https://www.jiomart.com/images/product/original/443029969_blue/men-slim-fit-shirt-model-443029969_blue-0-202402030511.jpg?im=Resize=(600,750)",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=2",
+        url: "https://www.jiomart.com/images/product/original/443029969_blue/men-slim-fit-shirt-model3-443029969_blue-3-202402030511.jpg?im=Resize=(600,750)",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
     ],
@@ -158,11 +158,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=3",
+        url: "https://www.jiomart.com/images/product/original/rvaeiyuqfd/mxn-men-s-cotton-half-sleeves-solid-polo-t-shirt-product-images-rvaeiyuqfd-0-202303061631.jpg?im=Resize=(600,750)",
         altText: "Polo T-Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=4",
+        url: "https://www.jiomart.com/images/product/original/rvaeiyuqfd/mxn-men-s-cotton-half-sleeves-solid-polo-t-shirt-product-images-rvaeiyuqfd-1-202303061631.jpg?im=Resize=(600,750)",
         altText: "Polo T-Shirt Back View",
       },
     ],
@@ -186,7 +186,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=5",
+        url: "https://www.jiomart.com/images/product/original/rvjpwrcni0/bullmer-off-white-front-and-back-printed-colourblock-baggy-oversized-tshirt-for-men-product-images-rvjpwrcni0-0-202308010837.jpg?im=Resize=(600,750)",
         altText: "Oversized Graphic T-Shirt Front View",
       },
     ],
@@ -210,7 +210,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=6",
+        url: "https://www.jiomart.com/images/product/original/441137505_maroon/regular-fit-core-micro-feeder-heathered-henley-t-shirt-model-441137505_maroon-0-202309061638.jpg?im=Resize=(600,750)",
         altText: "Regular-Fit Henley Shirt Front View",
       },
     ],
@@ -234,7 +234,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=7",
+        url: "https://www.jiomart.com/images/product/original/rv5jnh36aj/rigo-men-maroon-henley-neck-full-sleeves-waffle-knit-t-shirt-product-images-rv5jnh36aj-0-202301051727.jpg?im=Resize=(600,750)",
         altText: "Long-Sleeve Thermal Tee Front View",
       },
     ],
@@ -258,7 +258,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=8",
+        url: "https://www.jiomart.com/images/product/original/443282269_darkgrey/men-regular-fit-training-v-neck-t-shirt-model-443282269_darkgrey-0-202505311817.jpg?im=Resize=(600,750)",
         altText: "V-Neck Classic T-Shirt Front View",
       },
     ],
@@ -282,7 +282,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=9",
+        url: "https://www.jiomart.com/images/product/original/443012910_blue/men-slim-fit-cargo-joggers-model-443012910_blue-0-202310020434.jpg?im=Resize=(600,750)",
         altText: "Slim Fit Joggers Front View",
       },
     ],
@@ -306,7 +306,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=10",
+        url: "https://www.jiomart.com/images/product/original/443041920_beige/men-relaxed-fit-utility-cargo-jogger-model-443041920_beige-0-202501131904.jpg?im=Resize=(600,750)",
         altText: "Cargo Joggers Front View",
       },
     ],
@@ -330,7 +330,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=11",
+        url: "https://www.jiomart.com/images/product/original/443049774_stone/men-structured-ottoman-tapered-fit-track-pants-model-443049774_stone-0-202411051120.jpg?im=Resize=(600,750)",
         altText: "Tapered Sweatpants Front View",
       },
     ],
@@ -354,7 +354,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=12",
+        url: "https://www.jiomart.com/images/product/original/469197539_blue/high-rise-flat-front-jeans-model-469197539_blue-0-202305261632.jpg?im=Resize=(600,750)",
         altText: "Denim Jeans Front View",
       },
     ],
@@ -378,7 +378,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=13",
+        url: "https://www.jiomart.com/images/product/original/443061630_grey/men-tapered-fit-flat-front-chinos-model2-443061630_grey-2-202506280534.jpg?im=Resize=(600,750)",
         altText: "Chino Pants Front View",
       },
     ],
@@ -402,7 +402,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=14",
+        url: "https://www.jiomart.com/images/product/original/443084842_silver/men-mid-rise-regular-fit-track-pants-model-443084842_silver-0-202508081220.jpg?im=Resize=(600,750)",
         altText: "Track Pants Front View",
       },
     ],
@@ -426,7 +426,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=15",
+        url: "https://www.jiomart.com/images/product/original/443004269_olive/slim-fit-flat-front-trousers-model-443004269_olive-0-202301162209.jpg?im=Resize=(600,750)",
         altText: "Slim Fit Trousers Front View",
       },
     ],
@@ -450,7 +450,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=16",
+        url: "https://www.jiomart.com/images/product/original/443060487_black/men-loose-fit-flat-front-cargo-pants-model-443060487_black-0-202506061751.jpg?im=Resize=(600,750)",
         altText: "Cargo Pants Front View",
       },
     ],
@@ -474,7 +474,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=17",
+        url: "https://www.jiomart.com/images/product/original/442111556_charcoal/men-relaxed-fit-joggers-model-442111556_charcoal-0-202506021824.jpg?im=Resize=(600,750)",
         altText: "Relaxed Fit Sweatpants Front View",
       },
     ],
@@ -498,7 +498,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=18",
+        url: "https://www.jiomart.com/images/product/original/rvauv6qtp7/zeegold-men-s-grey-formal-slim-fit-trousers-office-wear-pants-with-flat-front-and-side-pockets-product-images-rvauv6qtp7-0-202506211427.png?im=Resize=(600,750)",
         altText: "Formal Dress Pants Front View",
       },
     ],
@@ -522,7 +522,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=19",
+        url: "https://www.jiomart.com/images/product/original/443002014_ltblue/high-rise-slim-fit-jeans-model-443002014_ltblue-0-202301170135.jpg?im=Resize=(600,750)",
         altText: "High-Waist Skinny Jeans",
       },
     ],
@@ -546,7 +546,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=20",
+        url: "https://www.jiomart.com/images/product/original/443067669_offwhite/women-wide-leg-flat-front-pants-model-443067669_offwhite-0-202506101336.jpg?im=Resize=(600,750)",
         altText: "Wide-Leg Trousers Front View",
       },
     ],
@@ -570,7 +570,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=21",
+        url: "https://www.jiomart.com/images/product/original/rveopaquie/feelings-women-s-solid-royal-blue-slim-fit-plus-size-cotton-churidar-leggings-product-images-rveopaquie-0-202406051815.jpg?im=Resize=(600,750)",
         altText: "Stretch Leggings Front View",
       },
     ],
@@ -594,7 +594,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=22",
+        url: "https://www.jiomart.com/images/product/original/rv0jhxl9mi/wisstler-women-coffee-brown-color-accordian-pleat-maxi-flared-skirt-product-images-rv0jhxl9mi-3-202310231307.jpg?im=Resize=(600,750)",
         altText: "Pleated Midi Skirt Front View",
       },
     ],
@@ -618,7 +618,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=23",
+        url: "https://www.jiomart.com/images/product/original/rvfqpehk1y/paavki-women-s-blue-cotton-lycra-loose-fit-flared-mid-rise-wide-leg-palazzo-pants-trouser-bottom-wear-for-girls-product-images-rvfqpehk1y-3-202410281231.jpg?im=Resize=(600,750)",
         altText: "Flared Palazzo Pants Front View",
       },
     ],
@@ -642,7 +642,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=24",
+        url: "https://www.jiomart.com/images/product/original/443046718_brown/women-relaxed-fit-joggers-with-insert-pockets-model-443046718_brown-0-202411051412.jpg?im=Resize=(600,750)",
         altText: "High-Rise Joggers Front View",
       },
     ],
@@ -666,7 +666,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=25",
+        url: "https://www.jiomart.com/images/product/original/441297319_redorange/vmi-valeria-straight-shorts-model-441297319_redorange-0-202309300719.jpg?im=Resize=(600,750)",
         altText: "Paperbag Waist Shorts Front View",
       },
     ],
@@ -690,7 +690,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=26",
+        url: "https://www.jiomart.com/images/product/original/443002055_darkblue/denim-shorts-with-raw-edge-hems-model-443002055_darkblue-0-202301240453.jpg?im=Resize=(600,750)",
         altText: "Stretch Denim Shorts Front View",
       },
     ],
@@ -714,7 +714,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=27",
+        url: "https://www.jiomart.com/images/product/original/441149861_ltblue/lightweight-culottes-with-front-tie-up-model-441149861_ltblue-0-202301170122.jpg?im=Resize=(600,750)",
         altText: "Culottes Front View",
       },
     ],
@@ -738,7 +738,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=28",
+        url: "https://www.jiomart.com/images/product/original/443013266_olive/pleated-wide-leg-trousers-model-443013266_olive-0-202310081431.jpg?im=Resize=(600,750)",
         altText: "Classic Pleated Trousers Front View",
       },
     ],
@@ -762,7 +762,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=29",
+        url: "https://www.jiomart.com/images/product/original/443061194_ecru/women-flat-knit-regular-fit-crop-top-model-443061194_ecru-0-202506061749.jpg?im=Resize=(600,750)",
         altText: "Knitted Cropped Top",
       },
     ],
@@ -786,7 +786,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=30",
+        url: "https://www.jiomart.com/images/product/original/rv9fibvevj/popwings-coffee-chiffon-peplum-floral-top-product-images-rv9fibvevj-0-202210122152.jpg?im=Resize=(600,750)",
         altText: "Boho Floral Blouse",
       },
     ],
@@ -810,7 +810,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=31",
+        url: "https://www.jiomart.com/images/product/original/443052206_pink/women-ribbed-regular-fit-round-neck-t-shirt-model-443052206_pink-0-202411151316.jpg?im=Resize=(600,750)",
         altText: "Casual T-Shirt",
       },
     ],
@@ -834,7 +834,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=32",
+        url: "https://www.jiomart.com/images/product/original/469243354_navy/off-shoulder-ruffle-accent-top-model-469243354_navy-0-202403182242.jpg?im=Resize=(600,750)",
         altText: "Off-Shoulder Top",
       },
     ],
@@ -858,7 +858,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=33",
+        url: "https://www.jiomart.com/images/product/original/443002531_jetblack/lace-top-with-camisole-model-443002531_jetblack-0-202301162243.jpg?im=Resize=(600,750)",
         altText: "Lace-Trimmed Cami Top",
       },
     ],
@@ -882,7 +882,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=34",
+        url: "https://www.jiomart.com/images/product/original/443057341_charcoal/women-graphic-print-regular-fit-round-neck-t-shirt-model-443057341_charcoal-0-202411131235.jpg?im=Resize=(600,750)",
         altText: "Graphic Print Tee",
       },
     ],
@@ -906,7 +906,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=35",
+        url: "https://www.jiomart.com/images/product/original/443043352_beige/women-ribbed-fitted-top-with-cut-outs-model-443043352_beige-0-202501131817.jpg?im=Resize=(600,750)",
         altText: "Ribbed Long-Sleeve Top",
       },
     ],
@@ -930,7 +930,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=36",
+        url: "https://www.jiomart.com/images/product/original/443049286_yellow/women-ruffled-relaxed-fit-v-neck-top-model-443049286_yellow-0-202412091546.jpg?im=Resize=(600,750)",
         altText: "Ruffle-Sleeve Blouse",
       },
     ],
@@ -954,7 +954,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=37",
+        url: "https://www.jiomart.com/images/product/original/rvyyak1mvk/moomaya-solid-shirts-for-women-mandarin-collar-button-down-cotton-formal-shirt-product-images-rvyyak1mvk-0-202310111223.jpg?im=Resize=(600,750)",
         altText: "Classic Button-Up Shirt",
       },
     ],
@@ -978,7 +978,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=38",
+        url: "https://www.jiomart.com/images/product/original/469401173_white/v-neck-top-with-front-tie-up-model-469401173_white-0-202309301948.jpg?im=Resize=(600,750)",
         altText: "V-Neck Wrap Top",
       },
     ],
