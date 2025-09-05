@@ -20,47 +20,48 @@ export const fetchAdminProducts = createAsyncThunk(
 // Async function to create a new product
 export const createProduct = createAsyncThunk(
   "adminProducts/createProduct",
-  async (productData) => {
-    const response = await axios.post(
-      `${API_URL}/api/admin/products`,
-      productData,
-      {
-        headers: {
-          Authorization: USER_TOKEN,
-        },
-      }
-    );
-    return response.data;
+  async (productData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_URL}/api/admin/products`, productData, {
+        headers: { Authorization: USER_TOKEN, "Content-Type": "application/json" },
+      });
+      return response.data;
+    } catch (err) {
+      const message = err?.response?.data?.message || err.message || "Failed to create product";
+      return rejectWithValue(message);
+    }
   }
 );
 
 // Update an existing product
 export const updateProduct = createAsyncThunk(
   "adminProducts/updateProduct",
-  async ({ id, productData }) => {
-    const response = await axios.put(
-      `${API_URL}/api/products/${id}`,
-      productData,
-      {
-        headers: {
-          Authorization: USER_TOKEN,
-        },
-      }
-    );
-    return response.data;
+  async ({ id, productData }, { rejectWithValue }) => {
+    try {
+      const response = await axios.put(`${API_URL}/api/products/${id}`, productData, {
+        headers: { Authorization: USER_TOKEN, "Content-Type": "application/json" },
+      });
+      return response.data;
+    } catch (err) {
+      const message = err?.response?.data?.message || err.message || "Failed to update product";
+      return rejectWithValue(message);
+    }
   }
 );
 
 // Delete a product
 export const deleteProduct = createAsyncThunk(
   "adminProducts/deleteProduct",
-  async (id) => {
-    await axios.delete(`${API_URL}/api/products/${id}`, {
-      headers: {
-        Authorization: USER_TOKEN,
-      },
-    });
-    return id;
+  async (id, { rejectWithValue }) => {
+    try {
+      await axios.delete(`${API_URL}/api/products/${id}`, {
+        headers: { Authorization: USER_TOKEN },
+      });
+      return id;
+    } catch (err) {
+      const message = err?.response?.data?.message || err.message || "Failed to delete product";
+      return rejectWithValue(message);
+    }
   }
 );
 
@@ -70,13 +71,16 @@ const adminProductSlice = createSlice({
     products: [],
     loading: false,
     error: null,
+    creating: false,
+    createError: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // Fetchc products
+      // Fetch
       .addCase(fetchAdminProducts.pending, (state) => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(fetchAdminProducts.fulfilled, (state, action) => {
         state.loading = false;
@@ -84,26 +88,32 @@ const adminProductSlice = createSlice({
       })
       .addCase(fetchAdminProducts.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "Failed to fetch products";
+        state.error = action.payload || action.error.message || "Failed to fetch products";
       })
-      // Create product
+
+      // Create
+      .addCase(createProduct.pending, (state) => {
+        state.creating = true;
+        state.createError = null;
+      })
       .addCase(createProduct.fulfilled, (state, action) => {
-        state.products.push(action.payload);
+        state.creating = false;
+        state.products.unshift(action.payload);
       })
-      // Update product
+      .addCase(createProduct.rejected, (state, action) => {
+        state.creating = false;
+        state.createError = action.payload || action.error.message || "Failed to create product";
+      })
+
+      // Update
       .addCase(updateProduct.fulfilled, (state, action) => {
-        const index = state.products.findIndex(
-          (product) => product._id === action.payload._id
-        );
-        if (index !== -1) {
-          state.products[index] = action.payload;
-        }
+        const index = state.products.findIndex((p) => p._id === action.payload._id);
+        if (index !== -1) state.products[index] = action.payload;
       })
-      // Delete product
+
+      // Delete
       .addCase(deleteProduct.fulfilled, (state, action) => {
-        state.products = state.products.filter(
-          (product) => product._id !== action.payload
-        );
+        state.products = state.products.filter((p) => p._id !== action.payload);
       });
   },
 });

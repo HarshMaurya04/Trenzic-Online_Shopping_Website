@@ -9,7 +9,7 @@ const UserLayout = () => {
       <Header />
 
       {/* Main Content */}
-      <main>
+      <main className="pt-[115px]">
         <Outlet />
       </main>
 
