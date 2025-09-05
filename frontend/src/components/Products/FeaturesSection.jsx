@@ -16,7 +16,7 @@ const FeaturesSection = () => {
           <h4 className="text-lg font-semibold mb-2 tracking-wide">
             FREE INTERNATIONAL SHIPPING
           </h4>
-          <p className="text-gray-600 text-sm">On all orders over Rs.8500</p>
+          <p className="text-gray-600 text-sm">On all orders over ₹8500</p>
         </div>
 
         {/* Feature 2 */}
